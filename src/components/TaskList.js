@@ -35,24 +35,24 @@ export default function TaskList({ tasks, onDelete, onUpdate }) {
   };
 
   return (
-    <ul>
+    <ul className="space-y-4">
       {tasks.map((task) => (
-        <li key={task._id} className="border p-4 mb-2 flex justify-between items-center">
-          <div>
+        <li key={task._id} className="border p-4 flex justify-between items-start sm:flex-row sm:items-center sm:flex-nowrap flex-col">
+          <div className="w-full sm:w-auto">
             <h2 className={`font-bold ${task.isCompleted ? 'line-through text-gray-500' : ''}`}>
               {task.title}
             </h2>
             <p>{task.description}</p>
             <p>Due: {new Date(task.dueDate).toLocaleDateString()}</p>
           </div>
-          <div className="flex items-center">
+          <div className="flex gap-2 items-center sm:flex-nowrap flex-wrap mt-2 sm:mt-0">
             <input
               type="checkbox"
               checked={task.isCompleted}
               onChange={() => handleToggleComplete(task._id, task.isCompleted)}
               className="mr-2"
             />
-            <button onClick={() => startEdit(task)} className="text-blue-500 mr-2">Edit</button>
+            <button onClick={() => startEdit(task)} className="text-blue-500">Edit</button>
             <button onClick={() => onDelete(task._id)} className="text-red-500">Delete</button>
           </div>
         </li>
@@ -61,7 +61,7 @@ export default function TaskList({ tasks, onDelete, onUpdate }) {
       {/* Edit Modal */}
       {editingTask && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg">
+          <div className="bg-white p-6 rounded-lg max-w-lg w-full">
             <h2 className="text-lg font-bold mb-2 text-black">Edit Task</h2>
             <input
               type="text"

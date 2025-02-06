@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Task Manager</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Task Manager</h1>
       <TaskForm onTaskCreated={fetchTasks} />
       {loading ? <p>Loading...</p> : <TaskList tasks={tasks} onDelete={handleDelete} onUpdate={fetchTasks} />}
       <ToastContainer />  {/* Add ToastContainer for displaying toasts */}

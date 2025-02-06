@@ -32,33 +32,34 @@ export default function TaskForm({ onTaskCreated }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4">
+    <form onSubmit={handleSubmit} className="mb-4 space-y-4 max-w-lg mx-auto">
       <input
-  type="text"
-  placeholder="Title"
-  value={title}
-  onChange={(e) => setTitle(e.target.value)}
-  className="border p-2 mr-2 bg-white text-black"
-  required
-/>
+        type="text"
+        placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        className="border p-2 w-full bg-white text-black"
+        required
+      />
 
-<input
-  type="text"
-  placeholder="Description"
-  value={description}
-  onChange={(e) => setDescription(e.target.value)}
-  className="border p-2 mr-2 bg-white text-black"
-/>
+      <input
+        type="text"
+        placeholder="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        className="border p-2 w-full bg-white text-black"
+      />
 
-<input
-  type="date"
-  value={dueDate}
-  onChange={(e) => setDueDate(e.target.value)}
-  className="border p-2 mr-2 bg-white text-black"
-/>
+      <input
+        type="date"
+        value={dueDate}
+        onChange={(e) => setDueDate(e.target.value)}
+        className="border p-2 w-full bg-white text-black"
+      />
 
-{error && <p className="text-red-500">{error}</p>}
-      <button type="submit" className="bg-blue-500 text-white p-2">
+      {error && <p className="text-red-500">{error}</p>}
+
+      <button type="submit" className="bg-blue-500 text-white p-2 w-full">
         Add Task
       </button>
     </form>
